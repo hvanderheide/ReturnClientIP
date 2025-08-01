@@ -34,7 +34,7 @@ func (m *MethodBlock) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		rw.WriteHeader(http.StatusOK)
 		host, _, err := net.SplitHostPort(req.RemoteAddr)
 		if err != nil {
-			rw.Write([]byte(req.RemoteAddr))
+			rw.Write([]byte(req.RemoteAddr + "\n"))
 		} else {
 			rw.Write([]byte(host))
 		}
